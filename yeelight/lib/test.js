@@ -1,4 +1,4 @@
-var yeeLight = require('./yee.js');
+const yeeLight = require('./yee.js');
 
 
 YeeHandler  = function(){
@@ -11,7 +11,6 @@ YeeHandler  = function(){
 	this.onDevConnected = function(dev) {
 	    console.log("dev conn: " + dev.did + " " + dev.name);
 	    dev.setPower(1);
-	    //dev.setName("Light");
 	};
 
 	this.onDevDisconnected = function(dev) {
@@ -23,7 +22,7 @@ YeeHandler  = function(){
 	};
 };
 
-var api = new yeeLight.YeeAgent("192.168.1.16", new YeeHandler());
+let api = new yeeLight.YeeAgent("192.168.1.16", new YeeHandler());
 
 
 api.startDisc();

@@ -8,10 +8,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/vvpossible/homebridge_yeelight.git"
+    "url": "git:github.com/thomasmunoz13/homebridge_yeelight.git"
   },
   "bugs": {
-    "url": "http://github.com/vvpossible/homebridge_yeelight/issues"
+    "url": "https://github.com/thomasmunoz13/homebridge_yeelight/issues"
   },
   "engines": {
     "node": ">=0.12.0",

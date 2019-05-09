@@ -205,6 +205,30 @@ YeeDevice = function (did, loc, model, power, bri, hue, sat, ct, name, cb) {
             return;
         }
 
+        if (this.model === "ceiling"){
+            if(val <= 10){
+                console.log('start moonlight scene')
+
+                var req = {
+                    id:1, method:'set_scene',
+                    params:['nightlight', 1]
+                }
+
+                this.sendCmd(req)
+                return
+            } else {
+                console.log('start daylight scene');
+                var req = {
+                    id: 1,
+                    method: 'set_ct_abx',
+                    params: [val, 'smooth', 500]
+                }
+
+	            this.sendCmd(req);
+            }
+
+        }
+
         this.sendCmd({
             id: 1,
             method: 'set_bright',
@@ -472,7 +496,7 @@ exports.YeeAgent = function(ip, handler) {
                                               "unknown",
                                               that.devPropChange
                                              );
-          
+
             this.handler.onDevFound(that.devices[did]);
         }
 
@@ -577,7 +601,7 @@ exports.YeeAgent = function(ip, handler) {
             }
 
             console.log("power: " + data[2] + " bright: " + data[8]);
-        }   
+        }
     }.bind(this);
 };
 

@@ -1,5 +1,5 @@
-var yeeLight = require('./lib/yee.js');
-var Service, Characteristic, Accessory, UUIDGen;
+const yeeLight = require('./lib/yee.js');
+const Service, Characteristic, Accessory, UUIDGen;
 
 
 module.exports = function(homebridge) {
@@ -18,8 +18,8 @@ function YeePlatform(log, config, api) {
     this.log            = log;
     this.config         = config;
     this.yeeAccessories = [];
-    
-    var platform = this;
+
+    let platform = this;
 
     if (api) {
         this.api = api;
